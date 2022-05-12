@@ -27,7 +27,6 @@ const maxTableWidth = 820
 // const desktopWidth = 120
 
 const ViewportProvider: FC<{children:JSX.Element | JSX.Element[] | undefined }> = ({ children }) => {
-  // This is the exact same logic that we previously had in our hook
 
   // const isSSR = typeof window !== 'undefined'
 
@@ -63,9 +62,7 @@ const ViewportProvider: FC<{children:JSX.Element | JSX.Element[] | undefined }> 
     return () => window.removeEventListener('resize', handleWindowResize)
   }, [])
 
-  /* Now we are dealing with a context instead of a Hook, so instead
-     of returning the width and height we store the values in the
-     value of the Provider */
+  /*  with a context instead of a Hook */
   return (
     <ViewportContext.Provider value={details}>
       {children}
@@ -73,13 +70,9 @@ const ViewportProvider: FC<{children:JSX.Element | JSX.Element[] | undefined }> 
   )
 }
 
-/* Rewrite the "useViewport" hook to pull the width and height values
-   out of the context instead of calculating them itself */
+/* "useViewport" hook  */
 const useViewport = () => {
-  /* We can use the "useContext" Hook to access a context from within
-     another Hook, remember, Hooks are composable! */
   return React.useContext<ViewPortState>(ViewportContext)
-  // return { width, height };
 }
 
 export default ViewportProvider
