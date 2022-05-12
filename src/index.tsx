@@ -1,10 +1,9 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import ViewportProvider, {
+  useViewport,
+  ViewportContext,
+  ViewPortState ,
+  Orientation
+} from './ViewportProvider'
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export default ViewportProvider
+export { useViewport, ViewportContext , ViewPortState ,Orientation }

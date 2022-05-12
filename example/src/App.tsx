@@ -1,10 +1,13 @@
 import React from 'react'
 
-import { ExampleComponent } from 'view-detector'
-import 'view-detector/dist/index.css'
+import ViewportProvider from 'view-detector'
+import Sample from "./Sample";
+
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <ViewportProvider>
+    <Sample/>
+  </ViewportProvider>
 }
 
 export default App

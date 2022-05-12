@@ -1,6 +1,3 @@
-/// <reference types="react" />
-interface Props {
-    text: string;
-}
-export declare const ExampleComponent: ({ text }: Props) => JSX.Element;
-export {};
+import ViewportProvider, { useViewport, ViewportContext, ViewPortState, Orientation } from './ViewportProvider';
+export default ViewportProvider;
+export { useViewport, ViewportContext, ViewPortState, Orientation };
